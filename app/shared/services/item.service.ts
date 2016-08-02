@@ -4,14 +4,22 @@ import { Observable } from 'rxjs/Observable';
 
 import { Item } from '../../shared';
 
+import { ConfigService } from './config.service';
+
 @Injectable()
 export class ItemService {
+
+    private apiURI: string;
 
     /**
      * ItemsService constructor
      * @param  {Http}   private http Http module injected into constructor
+     * @param  {ConfigService}   private configService ConfigService module injected into constructor
      */
-    constructor(private http: Http) {
+    constructor(
+        private http: Http,
+        private configService: ConfigService) {
+        this.apiURI = this.configService.getApiURI();
     }
 
     /**
@@ -19,7 +27,8 @@ export class ItemService {
      * @return {Observable<Item[]>} returns an Observable that maps the json respond to an array of Items by casting
      */
     getItems(): Observable<Item[]> {
-        return this.http.get('http://localhost/CakePhp2_api/items')
+        return this.http
+            .get(this.apiURI)
             .map(res => <Item[]>res.json())
             .catch(this.handleError);
     }
@@ -30,13 +39,14 @@ export class ItemService {
      * @return {Observable<Item>}    [description]
      */
     getItemById(id: number): Observable<Item> {
-        return this.http.get('http://localhost/CakePhp2_api/items/' + id)
+        return this.http
+            .get(this.apiURI + id)
             .map(response => <Item>response.json())
             .catch(this.handleError);
     }
 
     /**
-     * Handled http error
+     * Handles http error
      * @returs Observable.throw thows the error message
      */
     private handleError(error: any) {
