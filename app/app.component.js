@@ -23,7 +23,9 @@ var AppComponent = (function () {
             templateUrl: './app.components.html',
             directives: [router_1.ROUTER_DIRECTIVES],
             providers: [shared_1.ItemService],
-            precompile: [itemComponents_1.ItemsListComponent]
+            precompile: [
+                itemComponents_1.ItemsListComponent,
+                itemComponents_1.ItemDetailComponent]
         }), 
         __metadata('design:paramtypes', [])
     ], AppComponent);

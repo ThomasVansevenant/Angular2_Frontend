@@ -13,19 +13,29 @@ var http_1 = require('@angular/http');
 var Observable_1 = require('rxjs/Observable');
 var ItemService = (function () {
     /**
-     * ItemService constructor
-     * @param  {Http}   private http module Http injected into constructor
+     * ItemsService constructor
+     * @param  {Http}   private http Http module injected into constructor
      */
     function ItemService(http) {
         this.http = http;
     }
     /**
      * Gets all items from the api
-     * @return {Observable<Item[]>} returns an Observable array of Items that maps the json respond to an array of Items by casting
+     * @return {Observable<Item[]>} returns an Observable that maps the json respond to an array of Items by casting
      */
     ItemService.prototype.getItems = function () {
         return this.http.get('http://localhost/CakePhp2_api/items')
             .map(function (res) { return res.json(); })
+            .catch(this.handleError);
+    };
+    /**
+     * Gets an item from the api
+     * @param  {number} id the id of an object
+     * @return {Observable<Item>}    [description]
+     */
+    ItemService.prototype.getItemById = function (id) {
+        return this.http.get('http://localhost/CakePhp2_api/items/' + id)
+            .map(function (response) { return response.json(); })
             .catch(this.handleError);
     };
     /**

@@ -32,19 +32,27 @@ var ItemsListComponent = (function () {
         this.getItems();
     };
     /**
-     * subscribe to an observable from
-     * @return {[type]} [description]
+     * subscribe to an observable getItems(): Observable<Item[]>
+     * get all items from itemService
+     * @return {Item[]} returns an array of Items
      */
     ItemsListComponent.prototype.getItems = function () {
         var _this = this;
         this.itemService.getItems()
             .subscribe(function (data) {
             _this.items = data;
-            console.log('Data successfully loaded');
+            console.log('Items successfully loaded');
         }, function (error) {
             _this.errorMessage = error;
             console.log(error);
         });
+    };
+    /**
+     * navigates to ItemDetailComponent
+     * @param  {number} id the id of an object
+     */
+    ItemsListComponent.prototype.gotoDetail = function (id) {
+        this.router.navigate(['/item-detail', id]);
     };
     ItemsListComponent.prototype.ngOnDestroy = function () {
     };
