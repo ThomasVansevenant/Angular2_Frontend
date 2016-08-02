@@ -18,6 +18,10 @@ var routes = [
     {
         path: 'item-add',
         component: itemComponents_1.ItemAddComponent
+    },
+    {
+        path: 'item-edit/:id',
+        component: itemComponents_1.ItemEditComponent
     }
 ];
 exports.appRouterProviders = [

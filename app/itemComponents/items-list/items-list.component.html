@@ -22,6 +22,7 @@
             <td>{{item.publish_date}}</td>
             <td>{{item.last_modified}}</td>
             <td><button (click)="gotoDetail(item.id)" type="button">Detail</button></td>
+            <td><button (click)="gotoEdit(item.id)" type="button">Edit</button></td>
         </tr>
     </table>
     <button (click)="gotoCreate()" type="button">Create</button>

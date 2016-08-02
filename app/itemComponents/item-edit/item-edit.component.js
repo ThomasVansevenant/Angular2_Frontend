@@ -10,33 +10,29 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
-var shared_1 = require('./shared');
-var itemComponents_1 = require('./itemComponents');
-require('./rxjs-operators');
-var AppComponent = (function () {
-    function AppComponent() {
+var item_form_component_1 = require('../item-form/item-form.component');
+var ItemEditComponent = (function () {
+    function ItemEditComponent(route) {
+        this.route = route;
     }
-    AppComponent = __decorate([
+    ItemEditComponent.prototype.ngOnInit = function () {
+        this.getId();
+    };
+    ItemEditComponent.prototype.getId = function () {
+        var id = +this.route.snapshot.params['id'];
+        this.id = id;
+    };
+    ItemEditComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
-            selector: 'my-app',
-            templateUrl: './app.components.html',
-            directives: [router_1.ROUTER_DIRECTIVES],
-            providers: [
-                shared_1.ItemService,
-                shared_1.ConfigService,
-                shared_1.NotificationService
-            ],
-            precompile: [
-                itemComponents_1.ItemsListComponent,
-                itemComponents_1.ItemDetailComponent,
-                itemComponents_1.ItemAddComponent,
-                itemComponents_1.ItemEditComponent
-            ]
+            selector: 'item-edit',
+            templateUrl: './item-edit.component.html',
+            directives: [item_form_component_1.ItemFormComponent],
+            styleUrls: ['item-edit.component.css']
         }), 
-        __metadata('design:paramtypes', [])
-    ], AppComponent);
-    return AppComponent;
+        __metadata('design:paramtypes', [router_1.ActivatedRoute])
+    ], ItemEditComponent);
+    return ItemEditComponent;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+exports.ItemEditComponent = ItemEditComponent;
+//# sourceMappingURL=item-edit.component.js.map
