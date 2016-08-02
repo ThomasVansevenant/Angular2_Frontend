@@ -8,19 +8,30 @@ import { Item } from '../../shared';
 export class ItemService {
 
     /**
-     * ItemService constructor
-     * @param  {Http}   private http module Http injected into constructor
+     * ItemsService constructor
+     * @param  {Http}   private http Http module injected into constructor
      */
     constructor(private http: Http) {
     }
 
     /**
      * Gets all items from the api
-     * @return {Observable<Item[]>} returns an Observable array of Items that maps the json respond to an array of Items by casting
+     * @return {Observable<Item[]>} returns an Observable that maps the json respond to an array of Items by casting
      */
     getItems(): Observable<Item[]> {
         return this.http.get('http://localhost/CakePhp2_api/items')
             .map(res => <Item[]>res.json())
+            .catch(this.handleError);
+    }
+
+    /**
+     * Gets an item from the api
+     * @param  {number} id the id of an object
+     * @return {Observable<Item>}    [description]
+     */
+    getItemById(id: number): Observable<Item> {
+        return this.http.get('http://localhost/CakePhp2_api/items/' + id)
+            .map(response => <Item>response.json())
             .catch(this.handleError);
     }
 
@@ -33,6 +44,6 @@ export class ItemService {
             error.status ? `${error.status} - ${error.statusText}` : 'Server error';
         console.error(errMsg);
         return Observable.throw(errMsg);
-    }
 
+    }
 }

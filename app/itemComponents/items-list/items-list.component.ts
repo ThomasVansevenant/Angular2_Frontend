@@ -39,20 +39,29 @@ export class ItemsListComponent implements OnInit, OnDestroy {
     }
 
 /**
- * subscribe to an observable from
- * @return {[type]} [description]
+ * subscribe to an observable getItems(): Observable<Item[]>
+ * get all items from itemService
+ * @return {Item[]} returns an array of Items
  */
     private getItems() {
         this.itemService.getItems()
             .subscribe(
             data => {
                 this.items = data
-                console.log('Data successfully loaded');
+                console.log('Items successfully loaded');
             },
             error => {
                 this.errorMessage = <any>error
-                console.log(error);
+                console.log(error)
             });
+    }
+
+/**
+ * navigates to ItemDetailComponent
+ * @param  {number} id the id of an object
+ */
+    gotoDetail(id: number) {
+        this.router.navigate(['/item-detail', id]);
     }
 
     ngOnDestroy() {

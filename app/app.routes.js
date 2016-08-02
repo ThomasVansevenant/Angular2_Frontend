@@ -10,6 +10,10 @@ var routes = [
     {
         path: 'items-list',
         component: itemComponents_1.ItemsListComponent
+    },
+    {
+        path: 'item-detail/:id',
+        component: itemComponents_1.ItemDetailComponent
     }
 ];
 exports.appRouterProviders = [
