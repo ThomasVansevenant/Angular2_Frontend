@@ -18,12 +18,12 @@ export class ItemsListComponent implements OnInit, OnDestroy {
     items: Item[];
     errorMessage: string;
 
-/**
- * ItemsListComponent constructor
- * @param  {ItemService} private itemService module ItemService injected into constructor
- * @param  {Router}      private router      module Router injected into constructor
- * @param  {Http}        private http        module Http injected into constructor
- */
+    /**
+     * ItemsListComponent constructor
+     * @param  {ItemService} private itemService module ItemService injected into constructor
+     * @param  {Router}      private router      module Router injected into constructor
+     * @param  {Http}        private http        module Http injected into constructor
+     */
     constructor(
         private itemService: ItemService,
         private router: Router,
@@ -38,11 +38,11 @@ export class ItemsListComponent implements OnInit, OnDestroy {
         this.getItems();
     }
 
-/**
- * subscribe to an observable getItems(): Observable<Item[]>
- * get all items from itemService
- * @return {Item[]} returns an array of Items
- */
+    /**
+     * subscribe to an observable getItems(): Observable<Item[]>
+     * get all items from itemService
+     * @return {Item[]} returns an array of Items
+     */
     private getItems() {
         this.itemService.getItems()
             .subscribe(
@@ -56,18 +56,22 @@ export class ItemsListComponent implements OnInit, OnDestroy {
             });
     }
 
-/**
- * navigates to ItemDetailComponent
- * @param  {number} id the id of an object
- */
+    /**
+     * navigates to ItemDetailComponent
+     * @param  {number} id the id of an object
+     */
     gotoDetail(id: number) {
         this.router.navigate(['/item-detail', id]);
     }
-    gotoCreate(){
-      this.router.navigate(['/item-add']);
+
+    gotoCreate() {
+        this.router.navigate(['/item-add']);
+    }
+
+    gotoEdit(id: number) {
+        this.router.navigate(['/item-edit', id]);
     }
 
     ngOnDestroy() {
     }
-
 }
