@@ -37,6 +37,9 @@ var ItemDetailComponent = (function () {
             console.log(error);
         });
     };
+    ItemDetailComponent.prototype.goBack = function () {
+        this.router.navigate(['/items-list']);
+    };
     ItemDetailComponent.prototype.ngOnDestroy = function () {
     };
     ItemDetailComponent = __decorate([

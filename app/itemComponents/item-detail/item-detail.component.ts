@@ -47,6 +47,10 @@ export class ItemDetailComponent implements OnInit, OnDestroy {
             });
     }
 
+    goBack(){
+      this.router.navigate(['/items-list']);
+    }
+
 
     ngOnDestroy() {
     }

@@ -1,8 +1,33 @@
 <h2>Detail</h2>
 
-<p>Title:          {{item?.title}}</p>
-<p>Description:    {{item?.description}}</p>
-<p>Body:           {{item?.body}}</p>
-<p>Embargo Date:   {{item?.embargo_date}}</p>
-<p>Publish Date:   {{item?.publish_date }}  </p>
-<p>Last Modified:  {{item?.last_modified}}</p>
+<div class="row">
+    <div class="col-xs-3">Title</div>
+    <div class="col-xs-9  pull-left">{{ item?.title }}</div>
+</div>
+
+<div class="row">
+    <div class="col-xs-3">Description</div>
+    <div class="col-xs-9 pull-left">{{ item?.description }}</div>
+</div>
+
+<div class="row">
+    <div class="col-xs-3">Embargo Date</div>
+    <div class="col-xs-9 pull-left">{{ item?.embargo_date }}</div>
+</div>
+
+<div class="row">
+    <div class="col-xs-3">Body</div>
+    <div class="col-xs-9 pull-left">{{item?.body}}</div>
+</div>
+
+<div class="row">
+    <div class="col-xs-3">Publish Date</div>
+    <div class="col-xs-9 pull-left">{{ item?.publish_date }}</div>
+</div>
+
+<div class="row">
+    <div class="col-xs-3">Last Modified</div>
+    <div class="col-xs-9 pull-left">{{ item?.last_modified }}</div>
+</div>
+
+<button class="btn btn-default" (click)="goBack()">Back</button>

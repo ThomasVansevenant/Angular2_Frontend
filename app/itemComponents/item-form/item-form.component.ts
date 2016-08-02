@@ -100,6 +100,10 @@ export class ItemFormComponent implements OnInit, OnDestroy {
         setTimeout(() => this.active = true, 0);
     }
 
+    goBack(){
+      this.router.navigate(['/items-list']);
+    }
+
     ngOnDestroy() {
     }
 

@@ -7,24 +7,27 @@
 </head>
 
 <body>
-    <table>
+  <h2>Items</h2>
+    <table class="table table-striped">
         <tr>
             <th>Title</th>
             <th>Description</th>
             <th>Embargo Date</th>
             <th>Publish Date</th>
             <th>Last Modified</th>
+            <th>Detail</th>
+            <th>Edit</th>
         </tr>
         <tr *ngFor="let item of items">
             <td>{{item.title}}</td>
             <td>{{item.description}}</td>
-            <td>{{item.embargo_date}}</td>
-            <td>{{item.publish_date}}</td>
-            <td>{{item.last_modified}}</td>
-            <td><button (click)="gotoDetail(item.id)" type="button">Detail</button></td>
-            <td><button (click)="gotoEdit(item.id)" type="button">Edit</button></td>
+            <td>{{item.embargo_date | date:"dd/MM/yy"}}</td>
+            <td>{{item.publish_date | date:"dd/MM/yy"}}</td>
+            <td>{{item.last_modified | date:"dd/MM/yy"}}</td>
+            <td><button (click)="gotoDetail(item.id)" type="button" class="btn btn-link">Detail</button></td>
+            <td><button (click)="gotoEdit(item.id)" type="button" class="btn btn-link">Edit</button></td>
         </tr>
     </table>
-    <button (click)="gotoCreate()" type="button">Create</button>
+    <button (click)="gotoCreate()" type="button" class="btn btn-default">Create</button>
 </body>
 </html>

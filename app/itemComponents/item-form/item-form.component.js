@@ -84,6 +84,9 @@ var ItemFormComponent = (function () {
         this.active = false;
         setTimeout(function () { return _this.active = true; }, 0);
     };
+    ItemFormComponent.prototype.goBack = function () {
+        this.router.navigate(['/items-list']);
+    };
     ItemFormComponent.prototype.ngOnDestroy = function () {
     };
     Object.defineProperty(ItemFormComponent.prototype, "diagnostic", {

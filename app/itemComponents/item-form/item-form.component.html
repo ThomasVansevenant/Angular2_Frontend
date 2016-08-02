@@ -27,16 +27,17 @@
 
         <div class="form-group">
             <label for="publish_date">Publish Date</label>
-            <input type="date" class="form-control" disabled [(ngModel)]="item.publish_date" name="publish_date">
+            <input type="text" class="form-control" disabled [(ngModel)]="item.publish_date" name="publish_date">
         </div>
 
         <div class="form-group">
             <label for="last_modified">Last Modified</label>
-            <input type="date" class="form-control" disabled [(ngModel)]="item.last_modified" name="last_modified">
+            <input type="text" class="form-control" disabled [(ngModel)]="item.last_modified" name="last_modified">
         </div>
 
         <button type="button" class="btn btn-default" [disabled]="!itemForm.form.valid" (click)="gotoConfirmation()">Save</button>
         <button type="button" class="btn btn-default" (click)="clearForm()">Clear</button>
+        <button class="btn btn-default" (click)="goBack()">Back</button>
     </form>
 </div>
 
@@ -54,21 +55,20 @@
 
     <div class="row">
         <div class="col-xs-3">Embargo Date</div>
-        <div class="col-xs-9 pull-left">{{ item.embargo_date }}</div>
+        <div class="col-xs-9 pull-left">{{ item.embargo_date | date:"dd/MM/yy" }}</div>
     </div>
 
     <div class="row">
         <div class="col-xs-3">Publish Date</div>
-        <div class="col-xs-9 pull-left">{{ item.publish_date }}</div>
+        <div class="col-xs-9 pull-left">{{ item.publish_date | date:"dd/MM/yy" }}</div>
     </div>
 
     <div class="row">
         <div class="col-xs-3">Last Modified</div>
-        <div class="col-xs-9 pull-left">{{ item.last_modified }}</div>
+        <div class="col-xs-9 pull-left">{{ item.last_modified | date:"dd/MM/yy" }}</div>
     </div>
 
     <br>
     <button class="btn btn-default" (click)="editConfirmation()">Edit</button>
     <button class="btn btn-default" (click)="save()">Ok</button>
-
 </div>
