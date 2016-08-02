@@ -44,6 +44,28 @@ var ItemService = (function () {
             .map(function (response) { return response.json(); })
             .catch(this.handleError);
     };
+    ItemService.prototype.createNewItem = function (item) {
+        var json = JSON.stringify(item);
+        var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
+        var options = new http_1.RequestOptions({ headers: headers });
+        return this.http.post(this.apiURI, json, options)
+            .catch(this.handleError);
+    };
+    ItemService.prototype.updateItem = function (item) {
+        var json = JSON.stringify(item);
+        var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
+        var options = new http_1.RequestOptions({ headers: headers });
+        return this.http.put(this.apiURI + item.id, json, options)
+            .catch(this.handleError);
+    };
+    ItemService.prototype.save = function (item) {
+        if (item.id) {
+            return this.updateItem(item);
+        }
+        else {
+            return this.createNewItem(item);
+        }
+    };
     /**
      * Handles http error
      * @returs Observable.throw thows the error message

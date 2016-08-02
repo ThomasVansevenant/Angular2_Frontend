@@ -7,3 +7,8 @@ export class Item {
   publish_date: string;
   last_modified: string;
 }
+
+export class Notification {
+  message: string;
+  isSaved: boolean;
+}
