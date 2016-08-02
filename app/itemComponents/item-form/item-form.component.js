@@ -89,12 +89,6 @@ var ItemFormComponent = (function () {
     };
     ItemFormComponent.prototype.ngOnDestroy = function () {
     };
-    Object.defineProperty(ItemFormComponent.prototype, "diagnostic", {
-        // TODO: Remove this when we're done
-        get: function () { return JSON.stringify(this.item); },
-        enumerable: true,
-        configurable: true
-    });
     __decorate([
         core_1.Input(), 
         __metadata('design:type', shared_1.Item)

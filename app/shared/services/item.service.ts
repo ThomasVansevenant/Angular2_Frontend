@@ -72,6 +72,14 @@ export class ItemService {
             return this.createNewItem(item);
         }
     }
+
+    delete(id: number) {
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let options = new RequestOptions({ headers: headers });
+
+        return this.http.delete(this.apiURI + id, options)
+            .catch(this.handleError);
+    }
     /**
      * Handles http error
      * @returs Observable.throw thows the error message

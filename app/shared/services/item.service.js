@@ -66,6 +66,12 @@ var ItemService = (function () {
             return this.createNewItem(item);
         }
     };
+    ItemService.prototype.delete = function (id) {
+        var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
+        var options = new http_1.RequestOptions({ headers: headers });
+        return this.http.delete(this.apiURI + id, options)
+            .catch(this.handleError);
+    };
     /**
      * Handles http error
      * @returs Observable.throw thows the error message

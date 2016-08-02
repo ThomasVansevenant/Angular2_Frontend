@@ -4,7 +4,10 @@ import { Router }                  from '@angular/router';
 
 import {
     Item,
-    ItemService}                    from '../../shared';
+    ItemService,
+    Notification,
+    NotificationService
+}           from '../../shared';
 
 @Component({
     moduleId: module.id,
@@ -17,6 +20,7 @@ export class ItemsListComponent implements OnInit, OnDestroy {
 
     items: Item[];
     errorMessage: string;
+    notification: Notification;
 
     /**
      * ItemsListComponent constructor
@@ -27,7 +31,8 @@ export class ItemsListComponent implements OnInit, OnDestroy {
     constructor(
         private itemService: ItemService,
         private router: Router,
-        private http: Http
+        private http: Http,
+        private notificationService: NotificationService
     ) { }
 
     /**
@@ -55,6 +60,37 @@ export class ItemsListComponent implements OnInit, OnDestroy {
                 console.log(error)
             });
     }
+
+    delete(item: Item) {
+        //filters out the selected item object from the items array
+        this.items = this.items
+            .filter(i => i !== item);
+
+        this.notificationService
+            .notifyDelete("You really want to delete: " + item.title);
+
+        this.itemService
+            .delete(item.id)
+            .subscribe(
+            () => {
+                console.log("delete succesfull");
+                this.notificationService
+                    .notify(item.title + ": deleted successfully", true);
+                this.getNotification();
+            },
+            error => {
+                this.errorMessage = <any>error;
+                this.notificationService
+                    .notify("Failed to deleted: " + item.title, false);
+                this.getNotification();
+            });
+    }
+
+    private getNotification() {
+        this.notification = new Notification();
+        this.notification = this.notificationService.getNotification();
+    }
+
 
     /**
      * navigates to ItemDetailComponent
