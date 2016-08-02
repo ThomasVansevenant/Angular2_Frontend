@@ -11,20 +11,25 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var http_1 = require('@angular/http');
 var Observable_1 = require('rxjs/Observable');
+var config_service_1 = require('./config.service');
 var ItemService = (function () {
     /**
      * ItemsService constructor
      * @param  {Http}   private http Http module injected into constructor
+     * @param  {ConfigService}   private configService ConfigService module injected into constructor
      */
-    function ItemService(http) {
+    function ItemService(http, configService) {
         this.http = http;
+        this.configService = configService;
+        this.apiURI = this.configService.getApiURI();
     }
     /**
      * Gets all items from the api
      * @return {Observable<Item[]>} returns an Observable that maps the json respond to an array of Items by casting
      */
     ItemService.prototype.getItems = function () {
-        return this.http.get('http://localhost/CakePhp2_api/items')
+        return this.http
+            .get(this.apiURI)
             .map(function (res) { return res.json(); })
             .catch(this.handleError);
     };
@@ -34,12 +39,13 @@ var ItemService = (function () {
      * @return {Observable<Item>}    [description]
      */
     ItemService.prototype.getItemById = function (id) {
-        return this.http.get('http://localhost/CakePhp2_api/items/' + id)
+        return this.http
+            .get(this.apiURI + id)
             .map(function (response) { return response.json(); })
             .catch(this.handleError);
     };
     /**
-     * Handled http error
+     * Handles http error
      * @returs Observable.throw thows the error message
      */
     ItemService.prototype.handleError = function (error) {
@@ -50,7 +56,7 @@ var ItemService = (function () {
     };
     ItemService = __decorate([
         core_1.Injectable(), 
-        __metadata('design:paramtypes', [http_1.Http])
+        __metadata('design:paramtypes', [http_1.Http, config_service_1.ConfigService])
     ], ItemService);
     return ItemService;
 }());

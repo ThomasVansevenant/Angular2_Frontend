@@ -9,29 +9,22 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var router_1 = require('@angular/router');
-var shared_1 = require('./shared');
-var itemComponents_1 = require('./itemComponents');
-require('./rxjs-operators');
-var AppComponent = (function () {
-    function AppComponent() {
+var ConfigService = (function () {
+    function ConfigService() {
+        this.apiURI = 'http://localhost/CakePhp2_api/items/';
     }
-    AppComponent = __decorate([
-        core_1.Component({
-            moduleId: module.id,
-            selector: 'my-app',
-            templateUrl: './app.components.html',
-            directives: [router_1.ROUTER_DIRECTIVES],
-            providers: [
-                shared_1.ItemService,
-                shared_1.ConfigService],
-            precompile: [
-                itemComponents_1.ItemsListComponent,
-                itemComponents_1.ItemDetailComponent]
-        }), 
+    /**
+     * returns the api url
+     * @return {string} the api uri
+     */
+    ConfigService.prototype.getApiURI = function () {
+        return this.apiURI;
+    };
+    ConfigService = __decorate([
+        core_1.Injectable(), 
         __metadata('design:paramtypes', [])
-    ], AppComponent);
-    return AppComponent;
+    ], ConfigService);
+    return ConfigService;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+exports.ConfigService = ConfigService;
+//# sourceMappingURL=config.service.js.map
