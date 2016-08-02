@@ -1,7 +1,10 @@
-import { Component } from '@angular/core';
+import { Component }         from '@angular/core';
 import { ROUTER_DIRECTIVES } from '@angular/router';
 
-import { ItemService } from './shared';
+import {ItemService}         from './shared';
+import {
+    ItemsListComponent
+}  from './itemComponents';
 
 import './rxjs-operators';
 
@@ -9,6 +12,9 @@ import './rxjs-operators';
     moduleId: module.id,
     selector: 'my-app',
     templateUrl: './app.components.html',
-    providers: [ItemService]
+    directives: [ROUTER_DIRECTIVES],
+    providers: [ItemService],
+    precompile: [ItemsListComponent]
+
 })
 export class AppComponent { }

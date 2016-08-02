@@ -9,7 +9,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var router_1 = require('@angular/router');
 var shared_1 = require('./shared');
+var itemComponents_1 = require('./itemComponents');
 require('./rxjs-operators');
 var AppComponent = (function () {
     function AppComponent() {
@@ -19,7 +21,9 @@ var AppComponent = (function () {
             moduleId: module.id,
             selector: 'my-app',
             templateUrl: './app.components.html',
-            providers: [shared_1.ItemService]
+            directives: [router_1.ROUTER_DIRECTIVES],
+            providers: [shared_1.ItemService],
+            precompile: [itemComponents_1.ItemsListComponent]
         }), 
         __metadata('design:paramtypes', [])
     ], AppComponent);

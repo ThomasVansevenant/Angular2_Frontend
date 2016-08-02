@@ -8,15 +8,15 @@ import { Item } from '../../shared';
 export class ItemService {
 
     /**
-     * ItemsService constructor
-     * @param  {Http}   private http Http module injected into constructor
+     * ItemService constructor
+     * @param  {Http}   private http module Http injected into constructor
      */
     constructor(private http: Http) {
     }
 
     /**
      * Gets all items from the api
-     * @return {Observable<Item[]>} returns an Observable that maps the json respond to an array of Items by casting
+     * @return {Observable<Item[]>} returns an Observable array of Items that maps the json respond to an array of Items by casting
      */
     getItems(): Observable<Item[]> {
         return this.http.get('http://localhost/CakePhp2_api/items')

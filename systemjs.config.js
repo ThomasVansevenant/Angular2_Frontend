@@ -29,7 +29,7 @@
             main: 'index.js',
             defaultExtension: 'js'
         },
-        'items-list': {
+        'itemComponents': {
             main: 'index.js',
             defaultExtension: 'js'
         }
