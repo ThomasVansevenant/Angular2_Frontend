@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Code d'Or: All items</title>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Embargo Date</th>
+            <th>Publish Date</th>
+            <th>Last Modified</th>
+        </tr>
+        <tr *ngFor="let item of items">
+            <td>{{item.title}}</td>
+            <td>{{item.description}}</td>
+            <td>{{item.embargo_date}}</td>
+            <td>{{item.publish_date}}</td>
+            <td>{{item.last_modified}}</td>
+        </tr>
+    </table>
+</body>
+</html>
