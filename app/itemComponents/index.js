@@ -8,4 +8,5 @@ function __export(m) {
 __export(require('./items-list/items-list.component'));
 __export(require('./item-detail/item-detail.component'));
 __export(require('./item-form/item-form.component'));
+__export(require('./item-add/item-add.component'));
 //# sourceMappingURL=index.js.map
