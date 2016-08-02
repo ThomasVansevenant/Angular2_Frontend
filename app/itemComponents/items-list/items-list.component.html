@@ -17,6 +17,7 @@
             <th>Last Modified</th>
             <th>Detail</th>
             <th>Edit</th>
+            <th>Delete</th>
         </tr>
         <tr *ngFor="let item of items">
             <td>{{item.title}}</td>
@@ -26,6 +27,7 @@
             <td>{{item.last_modified | date:"dd/MM/yy"}}</td>
             <td><button (click)="gotoDetail(item.id)" type="button" class="btn btn-link">Detail</button></td>
             <td><button (click)="gotoEdit(item.id)" type="button" class="btn btn-link">Edit</button></td>
+           <td><button (click)="delete(item)" type="button" class="btn btn-link">Delete</button></td>
         </tr>
     </table>
     <button (click)="gotoCreate()" type="button" class="btn btn-default">Create</button>

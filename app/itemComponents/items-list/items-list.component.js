@@ -19,10 +19,11 @@ var ItemsListComponent = (function () {
      * @param  {Router}      private router      module Router injected into constructor
      * @param  {Http}        private http        module Http injected into constructor
      */
-    function ItemsListComponent(itemService, router, http) {
+    function ItemsListComponent(itemService, router, http, notificationService) {
         this.itemService = itemService;
         this.router = router;
         this.http = http;
+        this.notificationService = notificationService;
     }
     /**
      * loads items on module initiation
@@ -47,6 +48,31 @@ var ItemsListComponent = (function () {
             console.log(error);
         });
     };
+    ItemsListComponent.prototype.delete = function (item) {
+        var _this = this;
+        //filters out the selected item object from the items array
+        this.items = this.items
+            .filter(function (i) { return i !== item; });
+        this.notificationService
+            .notifyDelete("You really want to delete: " + item.title);
+        this.itemService
+            .delete(item.id)
+            .subscribe(function () {
+            console.log("delete succesfull");
+            _this.notificationService
+                .notify(item.title + ": deleted successfully", true);
+            _this.getNotification();
+        }, function (error) {
+            _this.errorMessage = error;
+            _this.notificationService
+                .notify("Failed to deleted: " + item.title, false);
+            _this.getNotification();
+        });
+    };
+    ItemsListComponent.prototype.getNotification = function () {
+        this.notification = new shared_1.Notification();
+        this.notification = this.notificationService.getNotification();
+    };
     /**
      * navigates to ItemDetailComponent
      * @param  {number} id the id of an object
@@ -69,7 +95,7 @@ var ItemsListComponent = (function () {
             templateUrl: './items-list.component.html',
             styleUrls: ['items-list.component.css']
         }), 
-        __metadata('design:paramtypes', [shared_1.ItemService, router_1.Router, http_1.Http])
+        __metadata('design:paramtypes', [shared_1.ItemService, router_1.Router, http_1.Http, shared_1.NotificationService])
     ], ItemsListComponent);
     return ItemsListComponent;
 }());
