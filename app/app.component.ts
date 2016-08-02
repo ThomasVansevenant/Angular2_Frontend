@@ -8,7 +8,9 @@ import {
 
 import {
     ItemsListComponent,
-    ItemDetailComponent
+    ItemDetailComponent,
+    ItemAddComponent,
+
 }  from './itemComponents';
 
 import './rxjs-operators';
@@ -25,7 +27,8 @@ import './rxjs-operators';
       ],
     precompile: [
         ItemsListComponent,
-        ItemDetailComponent
+        ItemDetailComponent,
+        ItemAddComponent
       ]
 })
 export class AppComponent { }

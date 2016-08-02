@@ -21,9 +21,9 @@
             <td>{{item.embargo_date}}</td>
             <td>{{item.publish_date}}</td>
             <td>{{item.last_modified}}</td>
-            <td><button (click)="gotoDetail(item.id, $event)" type="button">Detail</button></td>
+            <td><button (click)="gotoDetail(item.id)" type="button">Detail</button></td>
         </tr>
-
     </table>
+    <button (click)="gotoCreate()" type="button">Create</button>
 </body>
 </html>

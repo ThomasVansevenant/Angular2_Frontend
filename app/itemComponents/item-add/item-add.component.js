@@ -9,33 +9,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var router_1 = require('@angular/router');
-var shared_1 = require('./shared');
-var itemComponents_1 = require('./itemComponents');
-require('./rxjs-operators');
-var AppComponent = (function () {
-    function AppComponent() {
+var item_form_component_1 = require('../item-form/item-form.component');
+var ItemAddComponent = (function () {
+    function ItemAddComponent() {
     }
-    AppComponent = __decorate([
+    ItemAddComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
-            selector: 'my-app',
-            templateUrl: './app.components.html',
-            directives: [router_1.ROUTER_DIRECTIVES],
-            providers: [
-                shared_1.ItemService,
-                shared_1.ConfigService,
-                shared_1.NotificationService
-            ],
-            precompile: [
-                itemComponents_1.ItemsListComponent,
-                itemComponents_1.ItemDetailComponent,
-                itemComponents_1.ItemAddComponent
-            ]
+            selector: 'item-add',
+            templateUrl: './item-add.component.html',
+            directives: [item_form_component_1.ItemFormComponent],
+            styleUrls: ['item-add.component.css']
         }), 
         __metadata('design:paramtypes', [])
-    ], AppComponent);
-    return AppComponent;
+    ], ItemAddComponent);
+    return ItemAddComponent;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+exports.ItemAddComponent = ItemAddComponent;
+//# sourceMappingURL=item-add.component.js.map

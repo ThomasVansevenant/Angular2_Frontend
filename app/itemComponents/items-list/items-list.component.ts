@@ -63,6 +63,9 @@ export class ItemsListComponent implements OnInit, OnDestroy {
     gotoDetail(id: number) {
         this.router.navigate(['/item-detail', id]);
     }
+    gotoCreate(){
+      this.router.navigate(['/item-add']);
+    }
 
     ngOnDestroy() {
     }

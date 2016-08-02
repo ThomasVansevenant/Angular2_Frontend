@@ -2,7 +2,8 @@ import { provideRouter, RouterConfig }  from '@angular/router';
 
 import {
     ItemsListComponent,
-    ItemDetailComponent
+    ItemDetailComponent,
+    ItemAddComponent
 }                from './itemComponents';
 
 const routes: RouterConfig = [
@@ -18,6 +19,10 @@ const routes: RouterConfig = [
     {
         path: 'item-detail/:id',
         component: ItemDetailComponent
+    },
+    {
+        path: 'item-add',
+        component: ItemAddComponent
     }
 
 ];

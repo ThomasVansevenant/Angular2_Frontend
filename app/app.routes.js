@@ -14,6 +14,10 @@ var routes = [
     {
         path: 'item-detail/:id',
         component: itemComponents_1.ItemDetailComponent
+    },
+    {
+        path: 'item-add',
+        component: itemComponents_1.ItemAddComponent
     }
 ];
 exports.appRouterProviders = [

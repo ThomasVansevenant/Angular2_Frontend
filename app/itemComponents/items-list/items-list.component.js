@@ -54,6 +54,9 @@ var ItemsListComponent = (function () {
     ItemsListComponent.prototype.gotoDetail = function (id) {
         this.router.navigate(['/item-detail', id]);
     };
+    ItemsListComponent.prototype.gotoCreate = function () {
+        this.router.navigate(['/item-add']);
+    };
     ItemsListComponent.prototype.ngOnDestroy = function () {
     };
     ItemsListComponent = __decorate([
