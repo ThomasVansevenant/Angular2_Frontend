@@ -5,4 +5,10 @@ var Item = (function () {
     return Item;
 }());
 exports.Item = Item;
+var Notification = (function () {
+    function Notification() {
+    }
+    return Notification;
+}());
+exports.Notification = Notification;
 //# sourceMappingURL=models.js.map

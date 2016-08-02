@@ -45,6 +45,33 @@ export class ItemService {
             .catch(this.handleError);
     }
 
+    private createNewItem(item: Item) {
+        var json = JSON.stringify(item)
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let options = new RequestOptions({ headers: headers });
+
+        return this.http.post(this.apiURI,
+            json, options)
+            .catch(this.handleError);
+    }
+
+    private updateItem(item: Item) {
+        var json = JSON.stringify(item);
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let options = new RequestOptions({ headers: headers });
+
+        return this.http.put(this.apiURI + item.id,
+            json, options)
+            .catch(this.handleError);
+    }
+
+    save(item: Item) {
+        if (item.id) {
+            return this.updateItem(item);
+        } else {
+            return this.createNewItem(item);
+        }
+    }
     /**
      * Handles http error
      * @returs Observable.throw thows the error message
@@ -54,6 +81,6 @@ export class ItemService {
             error.status ? `${error.status} - ${error.statusText}` : 'Server error';
         console.error(errMsg);
         return Observable.throw(errMsg);
-
     }
+
 }

@@ -24,10 +24,13 @@ var AppComponent = (function () {
             directives: [router_1.ROUTER_DIRECTIVES],
             providers: [
                 shared_1.ItemService,
-                shared_1.ConfigService],
+                shared_1.ConfigService,
+                shared_1.NotificationService
+            ],
             precompile: [
                 itemComponents_1.ItemsListComponent,
-                itemComponents_1.ItemDetailComponent]
+                itemComponents_1.ItemDetailComponent
+            ]
         }), 
         __metadata('design:paramtypes', [])
     ], AppComponent);

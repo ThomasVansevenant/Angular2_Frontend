@@ -3,8 +3,9 @@ import { ROUTER_DIRECTIVES } from '@angular/router';
 
 import {
     ItemService,
-    ConfigService}         from './shared';
-    
+    ConfigService,
+    NotificationService}         from './shared';
+
 import {
     ItemsListComponent,
     ItemDetailComponent
@@ -19,10 +20,12 @@ import './rxjs-operators';
     directives: [ROUTER_DIRECTIVES],
     providers: [
         ItemService,
-        ConfigService],
+        ConfigService,
+        NotificationService
+      ],
     precompile: [
         ItemsListComponent,
-        ItemDetailComponent]
-
+        ItemDetailComponent
+      ]
 })
 export class AppComponent { }

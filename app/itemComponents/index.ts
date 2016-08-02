@@ -3,3 +3,4 @@
  */
 export * from './items-list/items-list.component';
 export * from './item-detail/item-detail.component';
+export * from './item-form/item-form.component';
