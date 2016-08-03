@@ -4,7 +4,9 @@ import { ROUTER_DIRECTIVES } from '@angular/router';
 import {
     ItemService,
     ConfigService,
-    NotificationService}         from './shared';
+    NotificationService,
+    AuthenticationService,
+    AuthGuard}      from './shared';
 
 import {
     ItemsListComponent,
@@ -12,7 +14,11 @@ import {
     ItemAddComponent,
     ItemEditComponent
 
-}  from './itemComponents';
+}                             from './itemComponents';
+import {
+    LoginComponent,
+    SignupComponent
+}                             from './authenticationComponents';
 
 import './rxjs-operators';
 
@@ -24,13 +30,17 @@ import './rxjs-operators';
     providers: [
         ItemService,
         ConfigService,
-        NotificationService
-      ],
+        NotificationService,
+        AuthGuard,
+        AuthenticationService
+    ],
     precompile: [
         ItemsListComponent,
         ItemDetailComponent,
         ItemAddComponent,
-        ItemEditComponent
-      ]
+        ItemEditComponent,
+        LoginComponent,
+        SignupComponent
+    ]
 })
 export class AppComponent { }

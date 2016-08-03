@@ -12,6 +12,7 @@ var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
 var shared_1 = require('./shared');
 var itemComponents_1 = require('./itemComponents');
+var authenticationComponents_1 = require('./authenticationComponents');
 require('./rxjs-operators');
 var AppComponent = (function () {
     function AppComponent() {
@@ -25,13 +26,17 @@ var AppComponent = (function () {
             providers: [
                 shared_1.ItemService,
                 shared_1.ConfigService,
-                shared_1.NotificationService
+                shared_1.NotificationService,
+                shared_1.AuthGuard,
+                shared_1.AuthenticationService
             ],
             precompile: [
                 itemComponents_1.ItemsListComponent,
                 itemComponents_1.ItemDetailComponent,
                 itemComponents_1.ItemAddComponent,
-                itemComponents_1.ItemEditComponent
+                itemComponents_1.ItemEditComponent,
+                authenticationComponents_1.LoginComponent,
+                authenticationComponents_1.SignupComponent
             ]
         }), 
         __metadata('design:paramtypes', [])

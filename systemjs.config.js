@@ -10,7 +10,9 @@
         'angular2-in-memory-web-api': 'node_modules/angular2-in-memory-web-api',
         'rxjs': 'node_modules/rxjs',
         'shared': 'app/shared',
-        'itemComponents': 'app/itemComponents'
+        'itemComponents': 'app/itemComponents',
+        'authenticationComponents': 'app/authenticationComponents'
+
     };
     // packages tells the System loader how to load when no filename and/or no extension
     var packages = {
@@ -30,6 +32,10 @@
             defaultExtension: 'js'
         },
         'itemComponents': {
+            main: 'index.js',
+            defaultExtension: 'js'
+        },
+        'authenticationComponents': {
             main: 'index.js',
             defaultExtension: 'js'
         }
