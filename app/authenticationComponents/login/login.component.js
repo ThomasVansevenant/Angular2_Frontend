@@ -39,7 +39,8 @@ var LoginComponent = (function () {
             selector: 'login',
             templateUrl: './login.component.html',
             directives: [router_1.ROUTER_DIRECTIVES],
-            styleUrls: ['login.component.css']
+            styleUrls: ['login.component.css'],
+            providers: [shared_1.AuthenticationService]
         }), 
         __metadata('design:paramtypes', [router_1.Router, shared_1.AuthenticationService])
     ], LoginComponent);

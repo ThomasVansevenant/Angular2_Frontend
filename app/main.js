@@ -5,6 +5,8 @@ var app_routes_1 = require('./app.routes');
 var http_1 = require('@angular/http');
 var forms_1 = require('@angular/forms');
 var shared_1 = require('./shared');
+var core_1 = require('@angular/core');
+core_1.enableProdMode();
 platform_browser_dynamic_1.bootstrap(app_component_1.AppComponent, [
     forms_1.disableDeprecatedForms(),
     forms_1.provideForms(),

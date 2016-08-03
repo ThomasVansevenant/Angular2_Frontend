@@ -19,11 +19,12 @@ var ItemsListComponent = (function () {
      * @param  {Router}      private router      module Router injected into constructor
      * @param  {Http}        private http        module Http injected into constructor
      */
-    function ItemsListComponent(itemService, router, http, notificationService) {
+    function ItemsListComponent(itemService, router, http, notificationService, authenticationService) {
         this.itemService = itemService;
         this.router = router;
         this.http = http;
         this.notificationService = notificationService;
+        this.authenticationService = authenticationService;
     }
     /**
      * loads items on module initiation
@@ -88,6 +89,19 @@ var ItemsListComponent = (function () {
     };
     ItemsListComponent.prototype.ngOnDestroy = function () {
     };
+    ItemsListComponent.prototype.logout = function (event) {
+        var _this = this;
+        event.preventDefault();
+        this.authenticationService.
+            logout()
+            .subscribe(function () {
+            console.log('Logout successfully');
+            _this.router.navigate(['/login']);
+        }, function (error) {
+            _this.errorMessage = error;
+            console.log(error);
+        });
+    };
     ItemsListComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
@@ -95,7 +109,7 @@ var ItemsListComponent = (function () {
             templateUrl: './items-list.component.html',
             styleUrls: ['items-list.component.css']
         }), 
-        __metadata('design:paramtypes', [shared_1.ItemService, router_1.Router, http_1.Http, shared_1.NotificationService])
+        __metadata('design:paramtypes', [shared_1.ItemService, router_1.Router, http_1.Http, shared_1.NotificationService, shared_1.AuthenticationService])
     ], ItemsListComponent);
     return ItemsListComponent;
 }());

@@ -7,8 +7,8 @@ export class ConfigService {
     private authenticationUri: string;
 
     constructor() {
-        this.apiURI = 'http://localhost/CakePhp2_api/api/items/';
-        this.authenticationUri = 'http://localhost/CakePhp2_api/api/access/'
+        this.apiURI = 'http://thomas.test.codedor.be/CakePhp2_api/api/items/';
+        this.authenticationUri = 'http://thomas.test.codedor.be/CakePhp2_api/api/access/'
     }
 
     getApiURI() {

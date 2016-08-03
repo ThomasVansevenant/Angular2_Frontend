@@ -6,7 +6,8 @@ import {
     Item,
     ItemService,
     Notification,
-    NotificationService
+    NotificationService,
+    AuthenticationService
 }           from '../../shared';
 
 @Component({
@@ -32,7 +33,8 @@ export class ItemsListComponent implements OnInit, OnDestroy {
         private itemService: ItemService,
         private router: Router,
         private http: Http,
-        private notificationService: NotificationService
+        private notificationService: NotificationService,
+        private authenticationService: AuthenticationService
     ) { }
 
     /**
@@ -110,4 +112,20 @@ export class ItemsListComponent implements OnInit, OnDestroy {
 
     ngOnDestroy() {
     }
+
+    logout(event) {
+        event.preventDefault();
+        this.authenticationService.
+            logout()
+            .subscribe(
+            () => {
+                console.log('Logout successfully');
+                this.router.navigate(['/login']);
+            },
+            error => {
+                this.errorMessage = <any>error
+                console.log(error)
+            });
+    }
+
 }

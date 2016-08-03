@@ -10,7 +10,8 @@ import {
     selector: 'login',
     templateUrl: './login.component.html',
     directives: [ROUTER_DIRECTIVES],
-    styleUrls: ['login.component.css']
+    styleUrls: ['login.component.css'],
+    providers:[AuthenticationService]
 })
 
 export class LoginComponent implements OnInit, OnDestroy {

@@ -11,8 +11,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var ConfigService = (function () {
     function ConfigService() {
-        this.apiURI = 'http://localhost/CakePhp2_api/api/items/';
-        this.authenticationUri = 'http://localhost/CakePhp2_api/api/access/';
+        this.apiURI = 'http://thomas.test.codedor.be/CakePhp2_api/api/items/';
+        this.authenticationUri = 'http://thomas.test.codedor.be/CakePhp2_api/api/access/';
     }
     ConfigService.prototype.getApiURI = function () {
         return this.apiURI;

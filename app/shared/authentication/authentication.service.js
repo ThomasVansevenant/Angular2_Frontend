@@ -19,13 +19,20 @@ var AuthenticationService = (function () {
         this.authenticationUri = this.configService.getAuthenticationUri();
     }
     AuthenticationService.prototype.login = function (username, password) {
+        console.log(this.authenticationUri + 'login?username=' + username + '&password=' + password);
         return this.http
             .get(this.authenticationUri + 'login?username=' + username + '&password=' + password)
             .catch(this.handleError);
     };
     AuthenticationService.prototype.signup = function (username, password) {
+        console.log(this.authenticationUri + 'register?username=' + username + '&password=' + password);
         return this.http
             .get(this.authenticationUri + 'register?username=' + username + '&password=' + password)
+            .catch(this.handleError);
+    };
+    AuthenticationService.prototype.logout = function () {
+        return this.http
+            .get(this.authenticationUri + 'logout')
             .catch(this.handleError);
     };
     /**

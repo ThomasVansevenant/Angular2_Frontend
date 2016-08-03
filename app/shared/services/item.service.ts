@@ -38,7 +38,6 @@ export class ItemService {
      * @param  {number} id the id of an object
      * @return {Observable<Item>}    [description]
      */
-    //http://localhost/CakePhp2_api/api/items/itemById?id=1
     getItemById(id: number): Observable<Item> {
         return this.http
             .get(this.apiURI + 'itemById?id=' + id)

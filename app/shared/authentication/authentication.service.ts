@@ -16,15 +16,22 @@ export class AuthenticationService {
     }
 
     login(username: string, password: string) {
+      console.log(this.authenticationUri + 'login?username=' + username + '&password=' + password);
         return this.http
             .get(this.authenticationUri + 'login?username=' + username + '&password=' + password)
             .catch(this.handleError);
     }
 
     signup(username: string, password: string) {
+      console.log(this.authenticationUri + 'register?username=' + username + '&password=' + password);
         return this.http
             .get(this.authenticationUri + 'register?username=' + username + '&password=' + password)
             .catch(this.handleError);
+    }
+    logout(){
+      return this.http
+          .get(this.authenticationUri + 'logout')
+          .catch(this.handleError);
     }
 
     /**

@@ -4,6 +4,9 @@ import { appRouterProviders } from './app.routes';
 import { HTTP_PROVIDERS } from '@angular/http';
 import { disableDeprecatedForms, provideForms } from '@angular/forms';
 import { AuthGuard } from './shared';
+import {enableProdMode} from '@angular/core';
+
+enableProdMode();
 
 bootstrap(AppComponent, [
     disableDeprecatedForms(),

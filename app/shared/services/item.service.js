@@ -38,7 +38,6 @@ var ItemService = (function () {
      * @param  {number} id the id of an object
      * @return {Observable<Item>}    [description]
      */
-    //http://localhost/CakePhp2_api/api/items/itemById?id=1
     ItemService.prototype.getItemById = function (id) {
         return this.http
             .get(this.apiURI + 'itemById?id=' + id)
