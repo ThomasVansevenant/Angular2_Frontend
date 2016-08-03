@@ -80,6 +80,7 @@ export class ItemService {
         return this.http.delete(this.apiURI + id, options)
             .catch(this.handleError);
     }
+    
     /**
      * Handles http error
      * @returs Observable.throw thows the error message

@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output, OnInit, OnDestroy } from '@angular/core';
+import { Component, Input, OnInit, OnDestroy } from '@angular/core';
 import { NgForm }    from '@angular/forms';
 import { ActivatedRoute, Router }    from '@angular/router';
 

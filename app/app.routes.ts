@@ -1,33 +1,54 @@
 import { provideRouter, RouterConfig }  from '@angular/router';
+import { AuthGuard } from './shared';
 
 import {
     ItemsListComponent,
     ItemDetailComponent,
     ItemAddComponent,
-    ItemEditComponent
+    ItemEditComponent,
 }                from './itemComponents';
+
+import {
+    LoginComponent,
+    SignupComponent } from './authenticationComponents';
 
 const routes: RouterConfig = [
     {
         path: '',
-        redirectTo: '/items-list',
+        redirectTo: '/login',
         pathMatch: 'full'
     },
     {
         path: 'items-list',
-        component: ItemsListComponent
+        component: ItemsListComponent,
+        canActivate: [AuthGuard]
     },
     {
         path: 'item-detail/:id',
-        component: ItemDetailComponent
+        component: ItemDetailComponent,
+        canActivate: [AuthGuard]
     },
     {
         path: 'item-add',
-        component: ItemAddComponent
+        component: ItemAddComponent,
+        canActivate: [AuthGuard]
     },
     {
         path: 'item-edit/:id',
-        component: ItemEditComponent
+        component: ItemEditComponent,
+        canActivate: [AuthGuard]
+    },
+    {
+        path: 'login',
+        component: LoginComponent
+    },
+    {
+        path: 'signup',
+        component: SignupComponent
+    },
+    {
+        path: '**',
+        component: LoginComponent
     }
 ];
 
