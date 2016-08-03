@@ -9,7 +9,6 @@ export class AuthGuard implements CanActivate {
     }
 
     canActivate() {
-        //tokenNotExpired
         if (document.cookie.indexOf('CakeCookie[auth_token]') > -1) {
             return true;
         }

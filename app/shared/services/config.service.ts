@@ -4,18 +4,19 @@ import { Injectable } from '@angular/core';
 export class ConfigService {
 
     private apiURI: string;
+    private authenticationUri: string;
 
     constructor() {
-        this.apiURI = 'http://localhost/CakePhp2_api/items/';
+        this.apiURI = 'http://localhost/CakePhp2_api/api/items/';
+        this.authenticationUri = 'http://localhost/CakePhp2_api/api/access/'
     }
 
-
-/**
- * returns the api url
- * @return {string} the api uri
- */
     getApiURI() {
         return this.apiURI;
+    }
+
+    getAuthenticationUri() {
+        return this.authenticationUri;
     }
 
 }

@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output, OnInit, OnDestroy } from '@angular/core';
-import { Router }                  from '@angular/router';
+import { Router, ROUTER_DIRECTIVES }                  from '@angular/router';
 
 import {
     AuthenticationService
@@ -9,7 +9,7 @@ import {
     moduleId: module.id,
     selector: 'signup',
     templateUrl: './signup.component.html',
-    directives: [],
+    directives: [ROUTER_DIRECTIVES],
     providers: [],
     styleUrls: ['signup.component.css'],
     pipes: []

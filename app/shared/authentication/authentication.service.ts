@@ -7,26 +7,23 @@ import { ConfigService } from '../services/config.service';
 @Injectable()
 export class AuthenticationService {
 
-    private apiURI: string;
+    private authenticationUri: string;
 
     constructor(
         private http: Http,
         private configService: ConfigService) {
-        this.apiURI = this.configService.getApiURI();
+        this.authenticationUri = this.configService.getAuthenticationUri();
     }
 
-    //http://localhost/CakePhp2_Code_dOr/api/access/login?username=test&password=12345
-    //this.apiURI + 'access/login?username=' + username + '&password=' + password
     login(username: string, password: string) {
         return this.http
-            .get('http://localhost/CakePhp2_Code_dOr/api/access/login?username=' + username + '&password=' + password)
+            .get(this.authenticationUri + 'login?username=' + username + '&password=' + password)
             .catch(this.handleError);
     }
 
-    //api/access/register?username=test&password=12345
     signup(username: string, password: string) {
         return this.http
-            .get(this.apiURI + 'access/register?username=' + username + '&password=' + password)
+            .get(this.authenticationUri + 'register?username=' + username + '&password=' + password)
             .catch(this.handleError);
     }
 

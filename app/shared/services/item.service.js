@@ -29,7 +29,7 @@ var ItemService = (function () {
      */
     ItemService.prototype.getItems = function () {
         return this.http
-            .get(this.apiURI)
+            .get(this.apiURI + 'items')
             .map(function (res) { return res.json(); })
             .catch(this.handleError);
     };
@@ -38,9 +38,10 @@ var ItemService = (function () {
      * @param  {number} id the id of an object
      * @return {Observable<Item>}    [description]
      */
+    //http://localhost/CakePhp2_api/api/items/itemById?id=1
     ItemService.prototype.getItemById = function (id) {
         return this.http
-            .get(this.apiURI + id)
+            .get(this.apiURI + 'itemById?id=' + id)
             .map(function (response) { return response.json(); })
             .catch(this.handleError);
     };
@@ -48,14 +49,14 @@ var ItemService = (function () {
         var json = JSON.stringify(item);
         var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
         var options = new http_1.RequestOptions({ headers: headers });
-        return this.http.post(this.apiURI, json, options)
+        return this.http.post(this.apiURI + 'create', json, options)
             .catch(this.handleError);
     };
     ItemService.prototype.updateItem = function (item) {
         var json = JSON.stringify(item);
         var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
         var options = new http_1.RequestOptions({ headers: headers });
-        return this.http.put(this.apiURI + item.id, json, options)
+        return this.http.put(this.apiURI + 'edit', json, options)
             .catch(this.handleError);
     };
     ItemService.prototype.save = function (item) {
@@ -69,7 +70,7 @@ var ItemService = (function () {
     ItemService.prototype.delete = function (id) {
         var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
         var options = new http_1.RequestOptions({ headers: headers });
-        return this.http.delete(this.apiURI + id, options)
+        return this.http.delete(this.apiURI + 'delete?id=' + id, options)
             .catch(this.handleError);
     };
     /**

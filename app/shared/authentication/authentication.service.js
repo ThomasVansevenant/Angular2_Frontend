@@ -16,19 +16,16 @@ var AuthenticationService = (function () {
     function AuthenticationService(http, configService) {
         this.http = http;
         this.configService = configService;
-        this.apiURI = this.configService.getApiURI();
+        this.authenticationUri = this.configService.getAuthenticationUri();
     }
-    //http://localhost/CakePhp2_Code_dOr/api/access/login?username=test&password=12345
-    //this.apiURI + 'access/login?username=' + username + '&password=' + password
     AuthenticationService.prototype.login = function (username, password) {
         return this.http
-            .get('http://localhost/CakePhp2_Code_dOr/api/access/login?username=' + username + '&password=' + password)
+            .get(this.authenticationUri + 'login?username=' + username + '&password=' + password)
             .catch(this.handleError);
     };
-    //api/access/register?username=test&password=12345
     AuthenticationService.prototype.signup = function (username, password) {
         return this.http
-            .get(this.apiURI + 'access/register?username=' + username + '&password=' + password)
+            .get(this.authenticationUri + 'register?username=' + username + '&password=' + password)
             .catch(this.handleError);
     };
     /**

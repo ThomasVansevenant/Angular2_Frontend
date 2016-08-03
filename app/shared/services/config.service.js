@@ -11,14 +11,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var ConfigService = (function () {
     function ConfigService() {
-        this.apiURI = 'http://localhost/CakePhp2_api/items/';
+        this.apiURI = 'http://localhost/CakePhp2_api/api/items/';
+        this.authenticationUri = 'http://localhost/CakePhp2_api/api/access/';
     }
-    /**
-     * returns the api url
-     * @return {string} the api uri
-     */
     ConfigService.prototype.getApiURI = function () {
         return this.apiURI;
+    };
+    ConfigService.prototype.getAuthenticationUri = function () {
+        return this.authenticationUri;
     };
     ConfigService = __decorate([
         core_1.Injectable(), 

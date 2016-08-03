@@ -15,7 +15,6 @@ var AuthGuard = (function () {
         this.router = router;
     }
     AuthGuard.prototype.canActivate = function () {
-        //tokenNotExpired
         if (document.cookie.indexOf('CakeCookie[auth_token]') > -1) {
             return true;
         }

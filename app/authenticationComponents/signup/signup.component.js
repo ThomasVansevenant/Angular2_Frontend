@@ -38,7 +38,7 @@ var SignupComponent = (function () {
             moduleId: module.id,
             selector: 'signup',
             templateUrl: './signup.component.html',
-            directives: [],
+            directives: [router_1.ROUTER_DIRECTIVES],
             providers: [],
             styleUrls: ['signup.component.css'],
             pipes: []

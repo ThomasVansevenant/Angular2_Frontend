@@ -28,7 +28,7 @@ export class ItemService {
      */
     getItems(): Observable<Item[]> {
         return this.http
-            .get(this.apiURI)
+            .get(this.apiURI + 'items')
             .map(res => <Item[]>res.json())
             .catch(this.handleError);
     }
@@ -38,9 +38,10 @@ export class ItemService {
      * @param  {number} id the id of an object
      * @return {Observable<Item>}    [description]
      */
+    //http://localhost/CakePhp2_api/api/items/itemById?id=1
     getItemById(id: number): Observable<Item> {
         return this.http
-            .get(this.apiURI + id)
+            .get(this.apiURI + 'itemById?id=' + id)
             .map(response => <Item>response.json())
             .catch(this.handleError);
     }
@@ -50,7 +51,7 @@ export class ItemService {
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
 
-        return this.http.post(this.apiURI,
+        return this.http.post(this.apiURI + 'create',
             json, options)
             .catch(this.handleError);
     }
@@ -60,7 +61,7 @@ export class ItemService {
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
 
-        return this.http.put(this.apiURI + item.id,
+        return this.http.put(this.apiURI + 'edit',
             json, options)
             .catch(this.handleError);
     }
@@ -77,10 +78,10 @@ export class ItemService {
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
 
-        return this.http.delete(this.apiURI + id, options)
+        return this.http.delete(this.apiURI + 'delete?id=' + id, options)
             .catch(this.handleError);
     }
-    
+
     /**
      * Handles http error
      * @returs Observable.throw thows the error message
