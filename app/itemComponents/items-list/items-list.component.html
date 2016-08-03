@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Code d'Or: All items</title>
+</head>
+
+<body>
+  <h2>Items</h2>
+  <button (click)="logout($event)" type="button" class="btn btn-default">Logout</button>
+    <table class="table table-striped">
+        <tr>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Embargo Date</th>
+            <th>Publish Date</th>
+            <th>Last Modified</th>
+            <th>Detail</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+        <tr *ngFor="let item of items">
+            <td>{{item.title}}</td>
+            <td>{{item.description}}</td>
+            <td>{{item.embargo_date | date:"dd/MM/yy"}}</td>
+            <td>{{item.publish_date | date:"dd/MM/yy"}}</td>
+            <td>{{item.last_modified | date:"dd/MM/yy"}}</td>
+            <td><button (click)="gotoDetail(item.id)" type="button" class="btn btn-link">Detail</button></td>
+            <td><button (click)="gotoEdit(item.id)" type="button" class="btn btn-link">Edit</button></td>
+           <td><button (click)="delete(item)" type="button" class="btn btn-link">Delete</button></td>
+        </tr>
+    </table>
+    <button (click)="gotoCreate()" type="button" class="btn btn-default">Create</button>
+</body>
+</html>

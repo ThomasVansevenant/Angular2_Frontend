@@ -1,0 +1,83 @@
+<div class="container">
+    <form *ngIf="active" #itemForm="ngForm">
+        <div class="form-group">
+            <label for="title">Title</label>
+            <input type="text" class="form-control" required autofocus [(ngModel)]="item.title" name="title" #title="ngModel">
+        </div>
+        <div [hidden]="title.valid || title.pristine" class="alert alert-danger">
+            Title is required
+        </div>
+
+        <div class="form-group">
+            <label for="description">Description</label>
+            <input type="text" class="form-control" required [(ngModel)]="item.description" name="description" #description="ngModel">
+        </div>
+        <div [hidden]="description.valid || description.pristine" class="alert alert-danger">
+            Description is required
+        </div>
+
+        <div class="form-group">
+            <label for="embargo_date">Embargo Date</label>
+            <input type="date" class="form-control" required [(ngModel)]="item.embargo_date" name="embargo_date" #embargo_date="ngModel">
+        </div>
+        <div [hidden]="embargo_date.valid || embargo_date.pristine" class="alert alert-danger">
+            Embargo Date is required
+        </div>
+
+        <div class="form-group">
+            <label for="publish_date">Publish Date</label>
+            <input type="text" class="form-control" disabled [(ngModel)]="item.publish_date" name="publish_date">
+        </div>
+
+        <div class="form-group">
+            <label for="last_modified">Last Modified</label>
+            <input type="text" class="form-control" disabled [(ngModel)]="item.last_modified" name="last_modified">
+        </div>
+
+        <div class="form-group">
+            <label for="body">Body</label>
+            <textarea type="text" class="form-control" [(ngModel)]="item.body" name="body" rows="8"></textarea>
+        </div>
+
+        <button type="button" class="btn btn-default" [disabled]="!itemForm.form.valid" (click)="gotoConfirmation()">Save</button>
+        <button type="button" class="btn btn-default" (click)="clearForm()">Clear</button>
+        <button class="btn btn-default" (click)="goBack()">Back</button>
+    </form>
+</div>
+
+<div [hidden]="!submitted">
+    <h2>You submitted the following:</h2>
+    <div class="row">
+        <div class="col-xs-3">Title</div>
+        <div class="col-xs-9  pull-left">{{ item.title }}</div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-3">Description</div>
+        <div class="col-xs-9 pull-left">{{ item.description }}</div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-3">Embargo Date</div>
+        <div class="col-xs-9 pull-left">{{ item.embargo_date | date:"dd/MM/yy" }}</div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-3">Publish Date</div>
+        <div class="col-xs-9 pull-left">{{ item.publish_date | date:"dd/MM/yy" }}</div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-3">Last Modified</div>
+        <div class="col-xs-9 pull-left">{{ item.last_modified | date:"dd/MM/yy" }}</div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-3">Embargo Date</div>
+        <div class="col-xs-9 pull-left">{{ item.body}}</div>
+    </div>
+
+    <br>
+    <button class="btn btn-default" (click)="editConfirmation()">Edit</button>
+    <button class="btn btn-default" (click)="save()">Ok</button>
+</div>
