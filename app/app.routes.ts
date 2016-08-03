@@ -1,3 +1,6 @@
+/**
+ * Handles the routing of the application
+ */
 import { provideRouter, RouterConfig }  from '@angular/router';
 import { AuthGuard } from './shared';
 

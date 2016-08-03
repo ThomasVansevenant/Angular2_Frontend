@@ -1,3 +1,7 @@
+/**
+ * Handles the Notifications
+ * eg. on delete pops a confirmation box
+ */
 import { Injectable } from '@angular/core';
 
 import {
@@ -17,7 +21,11 @@ export class NotificationService {
         this.notification.message = message;
         this.notification.isSaved = isSaved;
     }
-
+/**
+ * Pops an confirmation box on deleting an item
+ * @param  {string} message confirmation message
+ * @return {confirmationbox} 
+ */
     notifyDelete(message: string) {
         this.notification = new Notification();
         return confirm(message);

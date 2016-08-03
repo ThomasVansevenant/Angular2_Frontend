@@ -1,6 +1,6 @@
-// import 'rxjs/Rx'; // adds ALL RxJS statics & operators to Observable
-
-// Imports rxjs statics and operators we need app.
+/**
+ * Imports rxjs statics and operators we need app.
+ */
 
 // Statics
 import 'rxjs/add/observable/throw';

@@ -1,3 +1,9 @@
+/**
+ * Read if a cookie 'CakeCookie[auth_token]' is present
+ * if it return true activation of link is possible
+ * eg. canActivate: [AuthGuard] in app.routes.ts
+ */
+
 import { Injectable } from '@angular/core';
 import { Router, CanActivate } from '@angular/router';
 

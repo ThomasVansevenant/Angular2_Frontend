@@ -8,6 +8,10 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+/**
+ * Handles the Notifications
+ * eg. on delete pops a confirmation box
+ */
 var core_1 = require('@angular/core');
 var shared_1 = require('../../shared');
 var NotificationService = (function () {
@@ -18,6 +22,11 @@ var NotificationService = (function () {
         this.notification.message = message;
         this.notification.isSaved = isSaved;
     };
+    /**
+     * Pops an confirmation box on deleting an item
+     * @param  {string} message confirmation message
+     * @return {confirmationbox}
+     */
     NotificationService.prototype.notifyDelete = function (message) {
         this.notification = new shared_1.Notification();
         return confirm(message);

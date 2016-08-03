@@ -1,4 +1,7 @@
 "use strict";
+/**
+ * Handles the routing of the application
+ */
 var router_1 = require('@angular/router');
 var shared_1 = require('./shared');
 var itemComponents_1 = require('./itemComponents');

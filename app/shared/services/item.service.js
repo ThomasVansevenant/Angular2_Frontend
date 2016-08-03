@@ -8,6 +8,10 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+/**
+ * Handles the GET, POST, PUT, DELETE from the ApiController
+ *
+ */
 var core_1 = require('@angular/core');
 var http_1 = require('@angular/http');
 var Observable_1 = require('rxjs/Observable');
@@ -36,7 +40,7 @@ var ItemService = (function () {
     /**
      * Gets an item from the api
      * @param  {number} id the id of an object
-     * @return {Observable<Item>}    [description]
+     * @return {Observable<Item>}
      */
     ItemService.prototype.getItemById = function (id) {
         return this.http

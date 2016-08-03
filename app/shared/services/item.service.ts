@@ -1,3 +1,8 @@
+
+/**
+ * Handles the GET, POST, PUT, DELETE from the ApiController
+ *
+ */
 import { Injectable } from '@angular/core';
 import { Http, Headers, RequestOptions, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
@@ -36,7 +41,7 @@ export class ItemService {
     /**
      * Gets an item from the api
      * @param  {number} id the id of an object
-     * @return {Observable<Item>}    [description]
+     * @return {Observable<Item>} 
      */
     getItemById(id: number): Observable<Item> {
         return this.http
